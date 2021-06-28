@@ -1,0 +1,16 @@
+plugins {
+    id 'cpp-application'
+}
+
+version '1.0.0'
+
+repositories {
+    maven {
+        name 'local'
+        url uri("${projectDir}/../repo")
+    }
+}
+
+dependencies {
+    implementation "com.company:lib:1.0.0"
+}

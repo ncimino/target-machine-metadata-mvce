@@ -1,0 +1,30 @@
+plugins {
+    id 'cpp-library'
+    id 'maven-publish'
+}
+
+version '1.0.0'
+group 'com.company'
+
+ext {
+    localRepo = project.layout.projectDirectory.dir("../repo")
+}
+
+library {
+    targetMachines = [machines.linux.x86_64, machines.windows.x86_64]
+//    targetMachines = [machines.linux.x86_64]
+}
+
+publishing {
+    repositories {
+        maven {
+            name 'local'
+            url uri(project.localRepo)
+        }
+    }
+}
+
+task cleanRepo(type: Delete) {
+    delete project.localRepo
+}
+clean.dependsOn(cleanRepo)

@@ -1,0 +1,3 @@
+rootProject.name = 'target-machine-metadata-mvce'
+include('lib')
+include('app')
